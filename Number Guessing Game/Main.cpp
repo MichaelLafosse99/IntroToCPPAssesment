@@ -8,7 +8,6 @@ int main()
 	int rand();
 	int randNum;
 	int input = 0;
-	int newNum;
 
 	randNum = rand() % 100 + 1;
 	
