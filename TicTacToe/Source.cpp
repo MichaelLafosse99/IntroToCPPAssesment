@@ -9,7 +9,7 @@ int main()
 
 	bool gameOver = true;
 
-	std::cout << "Welcome. This is my game of TicTacToe." << std::endl;
+	std::cout << "Welcome. This is my game of Tic-Tac-Toe." << std::endl;
 
 	std::cout << std::endl;
 
@@ -21,35 +21,55 @@ int main()
 	std::cin >> input;
 	std::cout << std::endl;
 
-	if (input == 1)
-	{
+
+
 		do {
 
 			bool validTurn;
 
+			//The grid for the game
 			std::cout << "		" << grid[0][0] << " | " << grid[0][1] << " | " << grid[0][2] << std::endl;
 			std::cout << "	       ---|---|---" << std::endl;
 			std::cout << "		" << grid[0][3] << " | " << grid[0][4] << " | " << grid[0][5] << std::endl;
 			std::cout << "	       ---|---|---" << std::endl;
 			std::cout << "		" << grid[0][6] << " | " << grid[0][7] << " | " << grid[0][8] << std::endl;
 
+			//Setting player one is X and Two is O
 			char token;
-			if (player = 1)
-			{
-				token = 'X';
-			}
-			else
-			{
-				token = 'O';
-			}
+			
+
 
 			do {
+				if (input == 1)
+				{
+					player = 1;
+				}
+				else if (input == 2)
+				{
+					player = 2;
+				}
+				else
+				{
+					std::cout << "That is not a choice.." << std::endl;
+
+				}
+
+				if (player == 1)
+				{
+					token = 'X';
+				}
+				else if (player == 2)
+				{
+					token = 'O';
+				}
 
 				char currentPlay;
-				 
-				std::cout << "Player " << player << ", where do you want to put your token?" << std::endl;
-				std::cin >> currentPlay;
-				std::cout << std::endl;
+
+					std::cout << "Player " << player << ", where do you want to put your token?" << std::endl;
+					std::cin >> currentPlay;
+					std::cout << std::endl;
+
+				//Checks each slot on the grid, if empty, places X, if occupied prompts issue and tells user to place again.
 				validTurn = true;
 				int row, col;
 
@@ -109,6 +129,6 @@ int main()
 
 		} while (!gameOver);
 
-	}
+	
 	system("pause");
 }
