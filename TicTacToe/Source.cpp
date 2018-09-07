@@ -3,7 +3,7 @@
 int main()
 {
 	int player(1);
-	int input;
+
 
 	char grid[3][3] = { {'1','2','3'}, {'4','5','6'}, {'7','8','9'} };	
 
@@ -13,15 +13,11 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Pick a player: " << std::endl;
+	std::cout << "This is what the grid looks like, you'll have to pick a number 1-9" << std::endl;
+	std::cout << "after choosing which player you are." << std::endl;
 
 	std::cout << std::endl;
-
-	std::cout << " |Player 1|  |Player 2| " << std::endl;
-	std::cin >> input;
-	std::cout << std::endl;
-
-
+	char token = 'X';
 
 		do {
 
@@ -35,37 +31,13 @@ int main()
 			std::cout << "		" << grid[0][6] << " | " << grid[0][7] << " | " << grid[0][8] << std::endl;
 
 			//Setting player one is X and Two is O
-			char token;
 			
 
-
 			do {
-				if (input == 1)
-				{
-					player = 1;
-				}
-				else if (input == 2)
-				{
-					player = 2;
-				}
-				else
-				{
-					std::cout << "That is not a choice.." << std::endl;
-
-				}
-
-				if (player == 1)
-				{
-					token = 'X';
-				}
-				else if (player == 2)
-				{
-					token = 'O';
-				}
-
+					
 				char currentPlay;
 
-					std::cout << "Player " << player << ", where do you want to put your token?" << std::endl;
+					std::cout << token <<" Choose where to place your token, 1-9" << std::endl;
 					std::cin >> currentPlay;
 					std::cout << std::endl;
 
@@ -117,15 +89,19 @@ int main()
 					std::cout << "That's already an occupied spot.. Pick another one." << std::endl;
 					std::cout << std::endl;
 				}
-
+				if (token == 'X')
+				{
+					token = 'O';
+				}
+				else
+				{
+					token = 'X';
+				}
 			} while (!validTurn);
 
 			gameOver = false;
 
 			bool win = true;
-
-
-
 
 		} while (!gameOver);
 
